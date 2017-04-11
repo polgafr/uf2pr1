@@ -1,60 +1,414 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
+    <head>
+        
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme.css" />
+        <title>Website Desarrolador</title>
+               
+        <style>
+            #btnAbrirMapa	
+            {	
+	       height: 35px;
+	       background-color:dodgerblue;
+	       color:white;
+	       align-items: center;
+           font-size: 20px;
+           padding-top: 10px;
+	       width:400px;
+	       border:1px solid black;
+           border-radius: 5px;
+	       }
+            
+            #btnCerrar	
+            {	
+	       height: 35px;
+	       background-color:red;
+	       color:white;
+	       align-items: center;
+           font-size: 20px;
+           padding-top: 10px;
+	       width:400px;
+	       border:1px solid black;
+           border-radius: 5px;
+	       }
+              
+              hr
+            {	
+	      width: 100%;
+                
+            
+        
+	       }
+           
+            #mas
+            {
+           height: 25px;
+	       background-color:deepskyblue;
+           text-shadow: none;
+	      /* align-items: center;*/
+           font-size: 16px;
+           left: 0px;
+           top:0px;
+          
+	       width:500px; 
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+          
+            }
+              
+              #bttllama
+            {	
+	       height: 25px;
+	       background-color:deepskyblue;
+	       color:white;
+	       align-items: center;
+           font-size: 16px;
+           float:left;
+           margin-right: 30px;
+	       width:60px;
+	       border:1px solid black;
+           border-radius: 5px;
+                text-align: center;
+	       }
+              
+              #bttmas
+            {	
+	       height: 25px;
+	       background-color:deepskyblue;
+	       color:white;
+	       align-items: center;
+           font-size: 16px;
+           float:left;
+           margin-right: 30px;
+	       width:60px;
+	       border:1px solid black;
+           border-radius: 5px;
+                text-align: center;
+	       }
+              
+              #bttedit
+            {	
+	       height: 25px;
+	       background-color:deepskyblue;
+	       color:white;
+	       align-items: center;
+           font-size: 16px;
+           float:left;
+           margin-right: 30px;
+	       width:60px;
+	       border:1px solid black;
+           border-radius: 5px;
+                text-align: center;
+	       }
+              
+            
+              #lista 
+            {	
+	       
+	      /* width:100%;*/
+          margin-top: 0px;
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
-</head>
+	       
+	       }
 
-<body>
-    <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+           .kc_fab_main_btn{
+  background-color:#F44336;
+  width:6px;
+  height:6px;
+  
+  
+  border:none;
+  outline:none;
+  color:#FFF;
+  font-size:36px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  
+}
+
+#back-to-top {
+    position: fixed;
+    border-radius:100%;
+    width: 60px;
+height: 60px;   
+    bottom: 2em;
+    right: 0px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+vertical-align: center;
+z-index: 2;
+    background:deepskyblue;
+    font-size: 45px;
+
+    
+    display: block;
+}
+#divlista{
+margin-top: 0px;
+}
+
+.ui-btn-icon-right:after{
+    color: deepskyblue;
+    background-color: deepskyblue;
+}
+
+        
+
+        </style>
+    </head>
+    <body>
+        <div class="app">
+           
+            <div data-role="page" id="home">
+
+               
+                <a href="#" ><div id="back-to-top">+</div></a>
+
+
+               <header data-role="header">
+                    <center><strong><div id="mas">
+                    CONTACTOS
+                       </div></strong></center>
+               </header>
+                
+                <div id="divlista" data-role="collapsible-set" data-iconpos="right" >
+
+                    <div data-role="collapsible" data-collapsed="false"  >
+                    <h3>Josep Carles</h3>
+                    <ul id="lista"  >
+                        <ul>
+                        
+                        <strong>Telf:</strong>93 188 74 56
+                        <br>
+                        <strong>Dirección:</strong>Josep Carles
+                        <br>
+                        <strong>GPS:</strong>41.572992, 2.002275
+                        <br>
+                        <strong>Website:</strong>http://www.josepcarles.com/
+                            
+                            <div >
+                            <div id="bttllama">
+                                Llama
+                            </div>
+                                <a href="mas.html">
+                            <div id="bttmas" type="submit">
+                                Mas
+                            </div>
+                                    </a>
+                            <div id="bttedit">
+                                Edit
+                            </div>
+                            </div>
+                        </ul>
+                        </ul>
+                        
+                    </div> 
+                    
+                    <div data-role="collapsible" data-collapsed="false">
+                    <h3>Joan Parra</h3>
+                    <ul id="lista">
+                        <ul>
+                        
+                        <strong>Telf:</strong>93 188 74 56
+                        <br>
+                        <strong>Dirección:</strong>Joan Parra
+                        <br>
+                        <strong>GPS:</strong>41.572992, 2.002275
+                        <br>
+                        <strong>Website:</strong>http://www.joanparra.com/
+                            
+                            <div>
+                            <div id="bttllama">
+                                Llama
+                            </div>
+                                <a href="mas.html">
+                            <div id="bttmas" type="submit">
+                                Mas
+                            </div>
+                                    </a>
+                            <div id="bttedit">
+                                Edit
+                            </div>
+                            <br>
+                            </div>
+                        </ul>
+                        </ul>
+                        <br>
+                    </div> 
+                    
+                    <div data-role="collapsible" data-collapsed="false">
+                    <h3>Batman Begins</h3>
+                    <ul id="lista">
+                        <ul>
+                        
+                        <strong>Telf:</strong>93 785 42 13
+                        <br>
+                        <strong>Dirección:</strong>Batman Begins
+                        <br>
+                        <strong>GPS:</strong>41.572992, 2.002275
+                        <br>
+                        <strong>Website:</strong>http://www.batmanbegins.com/
+                            
+                            <div>
+                            <div id="bttllama">
+                                Llama
+                            </div>
+                                <a href="mas.html">
+                            <div id="bttmas" type="submit">
+                                Mas
+                            </div>
+                                    </a>
+                            <div id="bttedit">
+                                Edit
+                            </div>
+                            </div>
+                        </ul>
+                        </ul>
+                        
+                    </div> 
+                    
+                    <div data-role="collapsible" data-collapsed="false">
+                    <h3>Tomás González</h3>
+                    <ul id="lista">
+                        <ul>
+                        
+                        <strong>Telf:</strong>93 780 52 14
+                        <br>
+                        <strong>Dirección:</strong>Tomás Gonzalez
+                        <br>
+                        <strong>GPS:</strong>41.572992, 2.002275
+                        <br>
+                        <strong>Website:</strong>http://www.tomazgonzalez.com/
+                            
+                            <div>
+                            <div id="bttllama">
+                                Llama
+                            </div>
+                                <a href="mas.html">
+                            <div id="bttmas" type="submit">
+                                Mas
+                            </div>
+                                    </a>
+                            <div id="bttedit">
+                                Edit
+                            </div>
+                            </div>
+                        </ul>
+                        </ul>
+                        
+                    </div> 
+                    
+                    <div data-role="collapsible" data-collapsed="false">
+                    <h3>Lola López</h3>
+                    <ul id="lista">
+                        <ul>
+                        
+                        <strong>Telf:</strong>93 568 41 25
+                        <br>
+                        <strong>Dirección:</strong>Lola López
+                        <br>
+                        <strong>GPS:</strong>41.572992, 2.002275
+                        <br>
+                        <strong>Website:</strong>http://www.lolalopez.com/
+                            
+                            <div>
+                            <div id="bttllama">
+                                Llama
+                            </div>
+                                <a href="mas.html">
+                            <div id="bttmas" type="submit">
+                                Mas
+                            </div>
+                                    </a>
+                            <div id="bttedit">
+                                Edit
+                            </div>
+                            </div>
+                        </ul>
+                        </ul>
+                        
+                    </div> 
+                    
+                    <div data-role="collapsible" data-collapsed="false">
+                    <h3>Pere Gisbert</h3>
+                    <ul id="lista">
+                        <ul>
+                        
+                        <strong>Telf:</strong>97 852 14 56
+                        <br>
+                        <strong>Dirección:</strong>Pere Gisbert
+                        <br>
+                        <strong>GPS:</strong>41.572992, 2.002275
+                        <br>
+                        <strong>Website:</strong>http://www.peregisbert.com/
+                            
+                            <div>
+                            <div id="bttllama">
+                                Llama
+                            </div>
+                                <a href="mas.html">
+                            <div id="bttmas" type="submit">
+                                Mas
+                            </div>
+                                    </a>
+                            <div id="bttedit">
+                                Edit
+                            </div>
+                            </div>
+                        </ul>
+                        </ul>
+                        
+                    </div> 
+                    
+                    <div data-role="collapsible" data-collapsed="false">
+                    <h3>Jordi Subirats</h3>
+                    <ul id="lista">
+                        <ul>
+                        
+                        <strong>Telf:</strong>97 852 14 56
+                        <br>
+                        <strong>Dirección:</strong>Jordi Subirats
+                        <br>
+                        <strong>GPS:</strong>41.572992, 2.002275
+                        <br>
+                        <strong>Website:</strong>http://www.jordisubirats.com/
+                            
+                            <div>
+                            <div id="bttllama">
+                                Llama
+                            </div>
+                                <a href="mas.html">
+                            <div id="bttmas" type="submit">
+                                Mas
+                            </div>
+                                    </a>
+                            <div id="bttedit">
+                                Edit
+                            </div>
+                            </div>
+                        </ul>
+                        </ul>
+                        
+                    </div> 
+                        
+                    
+
+ 
+                </div>
+                
+            </div>  
+            
+
         </div>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-</body>
-
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
 </html>
